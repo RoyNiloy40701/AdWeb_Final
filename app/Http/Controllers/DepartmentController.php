@@ -15,9 +15,11 @@ class DepartmentController extends Controller
     public function get(Request $req){
         $dept = Department::where('id',$req->id)->first();
         if($dept){
+           $dept->courses = $dept->courses;
             return response()->json($dept,200);
         }
         return response()->json(["msg"=>"notfound"],404);
+       
         
     }
 

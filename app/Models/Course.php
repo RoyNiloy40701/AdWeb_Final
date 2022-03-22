@@ -9,4 +9,9 @@ class Course extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'dept_id');
+    }
+  
 }

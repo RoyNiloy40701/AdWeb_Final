@@ -9,4 +9,8 @@ class Department extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'dept_id');
+    }
 }

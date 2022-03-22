@@ -15,6 +15,7 @@ class CourseController extends Controller
     public function get(Request $req){
         $course = Course::where('id',$req->id)->first();
         if($course){
+            $course->department = $course->department;
             return response()->json($course,200);
         }
         return response()->json(["msg"=>"notfound"],404);
